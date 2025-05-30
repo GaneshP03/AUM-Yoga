@@ -2,19 +2,12 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import yogaImage from "../assets/yoga1.jpg";
 import About from "./About";
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * Home component renders the main landing page section of the website.
- * It includes a text section with a type animation displaying motivational
- * messages and an image section showcasing a yoga-themed image. The component
- * also integrates the About section for additional content.
- * Utilizes responsive design to adapt to different screen sizes.
- */
+import Locations from "./Locations";
 
-/*******  9cb79979-bbd6-4705-832c-218016752c30  *******/
 function Home() {
   return (
     <>
+      {/* Hero Section */}
       <section className="bg-secondary py-12 md:py-16">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-y-8 md:gap-x-12">
           {/* Text Section */}
@@ -49,7 +42,10 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* About Section */}
       <About />
+      <Locations />
     </>
   );
 }

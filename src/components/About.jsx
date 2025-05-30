@@ -1,13 +1,13 @@
 import React from "react";
-import missionImage from "../assets/yoga2.jpg"; // Replace with actual image
-import visionImage from "../assets/yoga3.jpg"; // Replace with actual image
+import missionImage from "../assets/yoga2.jpg";
+import visionImage from "../assets/yoga3.jpg";
 
 function About() {
   return (
-    <section className="bg-secondary py-12 px-4 md:px-8">
+    <section className="bg-primary py-12 px-4 md:px-8">
       <div className="container mx-auto">
         {/* About Us Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-primary text-center mb-2">
+        <h2 className="text-4xl md:text-5xl font-bold text-secondary text-center mb-2">
           About Us
         </h2>
         <div className="flex justify-center mb-12">
@@ -25,7 +25,7 @@ function About() {
             />
           </div>
           {/* Text */}
-          <div className="flex-1 text-primary">
+          <div className="flex-1 text-secondary">
             <h3 className="text-3xl md:text-4xl font-semibold mb-2">
               Our Mission
             </h3>
@@ -50,7 +50,7 @@ function About() {
             />
           </div>
           {/* Text */}
-          <div className="flex-1 text-primary">
+          <div className="flex-1 text-secondary">
             <h3 className="text-3xl md:text-4xl font-semibold mb-2">
               Our Vision
             </h3>
