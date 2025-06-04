@@ -1,9 +1,9 @@
-import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import yogaImage from "../assets/yoga1.jpg";
 import About from "./About";
 import Locations from "./Locations";
-
+import Achievements from "./Achievements";
+import Footer from "./Footer";
 function Home() {
   return (
     <>
@@ -19,7 +19,7 @@ function Home() {
                   2000,
                   "Strengthen your soul and body.",
                   2000,
-                  "Welcome to AUM Yoga.",
+                  "Welcome to AUM Free Yoga Centre.",
                   2000,
                 ]}
                 wrapper="span"
@@ -44,6 +44,8 @@ function Home() {
       </section>
       <About />
       <Locations />
+      <Achievements />
+      <Footer />
     </>
   );
 }
