@@ -1,109 +1,128 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { ArrowDownToLine, Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const linkClass =
+    "cursor-pointer text-lg font-semibold transition hover:text-tertiary";
+  const activeClass = "text-tertiary";
 
   return (
     <nav className="text-primary py-5 px-4 fixed w-full top-0 z-10 bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/">
+      <div className="container mx-auto flex items-center justify-between">
+        {/* Left: Logo */}
+        <ScrollLink to="home" smooth={true} duration={500} offset={-80}>
           <img
             src={logo}
             alt="AUM Yoga Logo"
-            className="object-contain"
-            style={{ height: "70px", width: "auto" }} // Increased height
+            className="object-contain cursor-pointer"
+            style={{ height: "70px", width: "auto" }}
           />
-        </Link>
+        </ScrollLink>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex flex-grow justify-center space-x-4 md:space-x-6">
-          <Link
-            to="/about"
-            className="hover:text-tertiary transition text-lg font-semibold"
+        {/* Center: Desktop Menu */}
+        <div className="hidden md:flex flex-grow justify-center space-x-6">
+          <ScrollLink
+            to="about"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            spy={true}
+            activeClass={activeClass}
+            className={linkClass}
           >
             About Us
-          </Link>
-          <Link
-            to="/locations"
-            className="hover:text-tertiary transition text-lg font-semibold"
+          </ScrollLink>
+          <ScrollLink
+            to="locations"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            spy={true}
+            activeClass={activeClass}
+            className={linkClass}
           >
             Locations
-          </Link>
-          <Link
-            to="/achievements"
-            className="hover:text-tertiary transition text-lg font-semibold"
+          </ScrollLink>
+          <ScrollLink
+            to="achievements"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            spy={true}
+            activeClass={activeClass}
+            className={linkClass}
           >
             Achievements
-          </Link>
-          <Link
-            to="/contact"
-            className="hover:text-tertiary transition text-lg font-semibold"
+          </ScrollLink>
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            offset={-80}
+            duration={500}
+            spy={true}
+            activeClass={activeClass}
+            className={linkClass}
           >
             Contact Us
-          </Link>
+          </ScrollLink>
         </div>
 
-        {/* Brochure button (always visible) */}
-        <Link to="/brochure" className="hidden md:block">
-          <button className="bg-quaternary text-primary py-1.5 px-3 rounded-full hover:bg-tertiary transition flex items-center space-x-2 text-sm md:text-base font-semibold">
-            <ArrowDownToLine className="w-5 h-5" />
-            <span>Brochure</span>
+        {/* Right: Brochure Button + Hamburger Menu */}
+        <div className="flex items-center space-x-4">
+          <ScrollLink to="brochure" smooth={true} duration={500} offset={-80}>
+            <button className="hidden md:flex bg-quaternary text-primary py-1.5 px-3 rounded-full hover:bg-tertiary transition items-center space-x-2 text-sm md:text-base font-semibold">
+              <ArrowDownToLine className="w-5 h-5" />
+              <span>Brochure</span>
+            </button>
+          </ScrollLink>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-        </Link>
+        </div>
       </div>
 
-      {/* Mobile menu content */}
+      {/* Mobile Menu Content */}
       {isOpen && (
         <div className="md:hidden mt-3 px-4 space-y-3">
-          <Link
-            to="/about"
-            className="block text-base font-medium hover:text-tertiary"
+          {["about", "locations", "achievements", "contact"].map((section) => (
+            <ScrollLink
+              key={section}
+              to={section}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              spy={true}
+              activeClass={activeClass}
+              className="block text-base font-medium hover:text-tertiary cursor-pointer"
+              onClick={toggleMenu}
+            >
+              {section.charAt(0).toUpperCase() +
+                section.slice(1).replace("-", " ")}
+            </ScrollLink>
+          ))}
+          <ScrollLink
+            to="brochure"
+            smooth={true}
+            duration={500}
+            offset={-80}
             onClick={toggleMenu}
           >
-            About Us
-          </Link>
-          <Link
-            to="/locations"
-            className="block text-base font-medium hover:text-tertiary"
-            onClick={toggleMenu}
-          >
-            Locations
-          </Link>
-          <Link
-            to="/achievements"
-            className="block text-base font-medium hover:text-tertiary"
-            onClick={toggleMenu}
-          >
-            Achievements
-          </Link>
-          <Link
-            to="/contact"
-            className="block text-base font-medium hover:text-tertiary"
-            onClick={toggleMenu}
-          >
-            Contact Us
-          </Link>
-          <Link to="/brochure" onClick={toggleMenu}>
             <button className="w-full mt-3 bg-quaternary text-primary py-1.5 px-3 rounded-full hover:bg-tertiary transition flex justify-center items-center space-x-2 text-base font-semibold">
               <ArrowDownToLine className="w-5 h-5" />
               <span>Brochure</span>
             </button>
-          </Link>
+          </ScrollLink>
         </div>
       )}
     </nav>

@@ -1,5 +1,4 @@
-import React from "react";
-import { Instagram, Youtube, Phone, Mail, Globe } from "lucide-react";
+import { Youtube, Phone, Mail, Globe } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,21 +11,13 @@ const Footer = () => {
           </h3>
           <div className="flex items-center gap-3 mb-2">
             <Phone className="w-5 h-5" />
-            <span>+91 98765 43210</span>
+            <span>+91 93333 33344</span>
           </div>
           <div className="flex items-center gap-3 mb-4">
             <Mail className="w-5 h-5" />
-            <span>aumfreeyoga@gmail.com</span>
+            <span>aumfreeyoga2018@gmail.com</span>
           </div>
           <div className="flex gap-6">
-            <a
-              href="https://www.instagram.com/aumfreeyogacentre"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-6 h-6 hover:text-primary/70 transition duration-300" />
-            </a>
             <a
               href="https://www.youtube.com/@aumfreeyogacentre"
               target="_blank"
@@ -49,7 +40,7 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <Globe className="w-5 h-5" />
             <span>
-              Backed by <strong>WebB Heads</strong>
+              Backed by <strong>Webb Heads</strong>
             </span>
           </div>
         </div>
